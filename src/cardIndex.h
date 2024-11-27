@@ -27,7 +27,8 @@
 // But it doesn't have to be playing cards. It could be custom game cards. It could be
 // picking words from a list? Whatever list of things you need to be chosen from, one by
 // one.
-
+//
+// In one use case, it's address values on a NMEA2000 marine network.
 
 #include <lists.h>
 
@@ -55,6 +56,7 @@ class cardIndex :	public linkList {
 	virtual	~cardIndex(void);
 	
 				void	loadList(void);
+				void	omitCard(int value);
 				int	dealCard(void);
 				int	getNumRemain(void);
 				

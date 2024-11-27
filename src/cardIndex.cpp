@@ -14,7 +14,8 @@ cardIndex::cardIndex(int inNumCards)
 cardIndex::~cardIndex(void) { }
 
 
-// Your basic reshuffle. Dump this list, reload a fresh one.
+// Your basic reshuffle. Dump this list, reload a fresh one. This actually orders the list
+// from smallest to largest.
 void cardIndex::loadList(void) {
 	
 	indexObj*	newIndex;
@@ -27,6 +28,27 @@ void cardIndex::loadList(void) {
 	numRemain = numCards;					// Reset the amount of cards we have left to deal.
 }
 	
+	
+// This is for omitting a specific value out of the list.
+void cardIndex::omitCard(int value) {
+
+	indexObj*	trace;
+	
+	trace = getFirst();									// Grab the first node.
+	while(trace) {											// While we don't have a NULL pointer..
+		if (trace->getIndex()==value) {				// If the node value is the same as value..
+			unlinkObj(trace);								// Unlink the node.
+			delete(trace);									// Recycle the card.
+			numCards--;										// Reduce the card count.
+			return;											// Our work is complete. Let's go home.
+		} else if (trace->getIndex()<value) {		// If we run past into smaller values..
+			return;											// Card is missing, exit function.
+		} else {												// Else..
+			trace = (indexObj*)trace->getNext();	// Jump to the next node..
+		}
+	}								
+}
+
 
 // Like it says, we deal a card. Returns the index of the card we delt. Or 0 for no card.	
 int cardIndex::dealCard(void) {
