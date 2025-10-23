@@ -39,7 +39,7 @@ void cardIndex::omitCard(int value) {
 		if (trace->getIndex()==value) {				// If the node value is the same as value..
 			unlinkObj(trace);								// Unlink the node.
 			delete(trace);									// Recycle the card.
-			numCards--;										// Reduce the card count.
+			numRemain--;									// Reduce the card count.
 			return;											// Our work is complete. Let's go home.
 		} else if (trace->getIndex()<value) {		// If we run past into smaller values..
 			return;											// Card is missing, exit function.
