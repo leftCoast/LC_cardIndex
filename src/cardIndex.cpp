@@ -34,7 +34,7 @@ void cardIndex::omitCard(int value) {
 
 	indexObj*	trace;
 	
-	trace = getFirst();									// Grab the first node.
+	trace = (indexObj*)getFirst();									// Grab the first node.
 	while(trace) {											// While we don't have a NULL pointer..
 		if (trace->getIndex()==value) {				// If the node value is the same as value..
 			unlinkObj(trace);								// Unlink the node.
