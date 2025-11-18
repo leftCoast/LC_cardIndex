@@ -15,12 +15,15 @@ cardIndex::~cardIndex(void) { }
 
 
 // Your basic reshuffle. Dump this list, reload a fresh one. This actually orders the list
-// from smallest to largest.
-void cardIndex::loadList(void) {
+// from smallest to largest. NOTE: Input a value if you want the numCards changed.
+void cardIndex::loadList(int inNumCards) {
 	
 	indexObj*	newIndex;
 	
 	dumpList();									// Dump out remaining card indexes.
+	if (inNumCards) {							// If someone passed in a positive number.
+		numCards = inNumCards;				// we'll set that as the new number of cards they want.
+	}												//
 	for (int i=1;i<=numCards;i++) {		// For the amount of cards we have..
 		newIndex = new indexObj(i);		// Create a new card index node.
 		addToTop(newIndex);					// Add it to the top of the list (very fast)

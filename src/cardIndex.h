@@ -55,7 +55,7 @@ class cardIndex :	public linkList {
 				cardIndex(int inNumCards);
 	virtual	~cardIndex(void);
 	
-				void	loadList(void);
+				void	loadList(int inNumCards=0);	// Put in a number only if you want the value changed.
 				void	omitCard(int value);
 				int	dealCard(void);
 				int	getNumRemain(void);
