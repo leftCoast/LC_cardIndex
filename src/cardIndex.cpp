@@ -6,7 +6,7 @@ cardIndex::cardIndex(int inNumCards)
 	: linkList() {
 	
 	numCards = inNumCards;		// Save off our deck size.
-	loadList();						// Load up a new list of car indexes.
+	shuffle();						// Load up a new list of car indexes.
 }
 
 
@@ -16,7 +16,7 @@ cardIndex::~cardIndex(void) { }
 
 // Your basic reshuffle. Dump this list, reload a fresh one. This actually orders the list
 // from smallest to largest. NOTE: Input a value if you want the numCards changed.
-void cardIndex::loadList(int inNumCards) {
+void cardIndex::shuffle(int inNumCards) {
 	
 	indexObj*	newIndex;
 	
@@ -75,7 +75,7 @@ int cardIndex::dealCard(void) {
 }			
 
 
-int cardIndex::getNumRemain(void) { return numRemain; }
+int cardIndex::cardsLeft(void) { return numRemain; }
 
 
 
